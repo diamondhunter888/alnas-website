@@ -586,6 +586,15 @@ nav.open .n-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)
 }
 
 .n-logo-img{height:36px;width:auto;display:block;}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity:1; transform:none; }
+}
   </style>
 </head>
 <body>
