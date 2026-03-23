@@ -1,0 +1,10 @@
+# Backup files
+index-backup.html
+index-original-backup.html
+
+# Brainstorm/superpowers working files
+.superpowers/
+
+# OS
+.DS_Store
+Thumbs.db
