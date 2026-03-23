@@ -340,6 +340,29 @@ nav.scrolled {
 }
 
 /* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testimonials-bg { background:#F0FDFE; }
+.t-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
+.tcard {
+  background:#fff;
+  border:1px solid rgba(8,145,178,.12);
+  border-radius:16px;
+  padding:1.75rem;
+  box-shadow:0 4px 20px rgba(8,145,178,.08);
+  transition:transform .2s,box-shadow .2s;
+}
+.tcard:hover { transform:translateY(-3px); box-shadow:0 10px 32px rgba(8,145,178,.14); }
+.t-stars { color:#F59E0B; font-size:.9rem; letter-spacing:2px; margin-bottom:.75rem; }
+.t-quote { font-size:.88rem; line-height:1.8; color:var(--text); font-style:italic; margin-bottom:1.25rem; }
+.t-name { font-family:'Montserrat',sans-serif; font-size:.78rem; font-weight:700; color:var(--b); }
+.t-role { font-size:.72rem; color:var(--dim); margin-top:.2rem; }
+
+/* ═══════════════════════════════════════
    OVER ONS
 ═══════════════════════════════════════ */
 .over-bg { background:var(--soft); }
@@ -526,6 +549,7 @@ nav.open .n-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)
   .ft-top{grid-template-columns:1fr 1fr;gap:2rem;}
   .diensten-grid{grid-template-columns:1fr 1fr;}
   .trust-bar{gap:1.5rem;}
+  .t-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:768px){
   nav{grid-template-columns:1fr auto;}
@@ -537,6 +561,7 @@ nav.open .n-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)
   .sec{padding:5rem 5%;}
   .usp-grid{grid-template-columns:1fr;}
   .dlist .dr{grid-template-columns:48px 1fr;gap:.75rem 1rem;padding:1.2rem 1.2rem;}
+  .t-grid{grid-template-columns:1fr;}
   .dtags-cell{display:none;}
   .h-btns{flex-direction:column;align-items:flex-start;}
   .over-grid{grid-template-columns:1fr;gap:2.5rem;}
@@ -648,6 +673,36 @@ nav.open .n-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)
     <div class="sc reveal d3"><div class="sc-n">100<span class="u">%</span></div><div class="sc-l">Op maat</div></div>
   </div>
 </div>
+
+<!-- ── GETUIGENISSEN ── -->
+<section class="sec testimonials-bg" id="reviews">
+  <div class="si">
+    <div style="text-align:center;margin-bottom:3rem" class="reveal">
+      <div class="overline overline-c">Klantervaringen</div>
+      <div class="h2" style="text-align:center">Wat onze klanten zeggen</div>
+    </div>
+    <div class="t-grid">
+      <div class="tcard reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Na de verbouwing was ons kantoor snel en vlekkeloos schoon. Echte professionals."</p>
+        <div class="t-name">Jan Vermeersch</div>
+        <div class="t-role">Kantoormanager, Antwerpen</div>
+      </div>
+      <div class="tcard reveal d1">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Al 3 jaar werken wij met Alnas. Altijd betrouwbaar en altijd top kwaliteit."</p>
+        <div class="t-name">Sophie Claes</div>
+        <div class="t-role">Zaakvoerster</div>
+      </div>
+      <div class="tcard reveal d2">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Onze wachtkamers worden wekelijks gereinigd. Absoluut te bevelen!"</p>
+        <div class="t-name">Dr. Ahmed Bensaid</div>
+        <div class="t-role">Dokterspraktijk</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── DIENSTEN ── -->
 <section class="sec" id="diensten">
