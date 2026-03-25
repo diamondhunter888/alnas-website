@@ -151,6 +151,47 @@
     }
 
   </style>
+<style id="cb-css">
+#cb-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;border-top:1px solid #e2e8f0;box-shadow:0 -4px 24px rgba(0,0,0,.1);padding:1.1rem 5%;transform:translateY(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);}
+#cb-banner.cb-show{transform:translateY(0);}
+.cb-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.cb-text{flex:1;min-width:220px;}
+.cb-text strong{font-size:.85rem;font-weight:700;color:#1a1d23;display:block;margin-bottom:.2rem;}
+.cb-text p{font-size:.75rem;color:#6b7280;line-height:1.55;margin:0;}
+.cb-inline-btn{background:none;border:none;padding:0;color:#0596ED;text-decoration:underline;cursor:pointer;font-size:inherit;font-family:inherit;}
+.cb-actions{display:flex;gap:.6rem;flex-shrink:0;flex-wrap:wrap;}
+.cb-btn{padding:.55rem 1.15rem;border-radius:7px;font-size:.75rem;font-weight:700;cursor:pointer;letter-spacing:.2px;border:none;font-family:inherit;transition:opacity .15s,transform .15s;white-space:nowrap;}
+.cb-btn:hover{opacity:.85;transform:translateY(-1px);}
+.cb-btn-pref{background:#f1f5f9;color:#374151;}
+.cb-btn-reject{background:#374151;color:#fff;}
+.cb-btn-accept{background:#0596ED;color:#fff;}
+#cb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.52);z-index:10000;display:none;}
+#cb-overlay.cb-show{display:block;}
+#cb-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-52%) scale(.96);z-index:10001;background:#fff;border-radius:16px;padding:2rem;width:min(520px,92vw);max-height:88vh;overflow-y:auto;opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .3s;}
+#cb-modal.cb-show{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto;}
+.cb-modal-title{font-size:1.05rem;font-weight:800;color:#1a1d23;margin-bottom:.35rem;}
+.cb-modal-desc{font-size:.78rem;color:#6b7280;margin-bottom:1.25rem;line-height:1.55;}
+.cb-cat{padding:.9rem 0;border-top:1px solid #e2e8f0;}
+.cb-cat-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.cb-cat-name{font-size:.82rem;font-weight:700;color:#1a1d23;display:block;margin-bottom:.15rem;}
+.cb-cat-info{font-size:.72rem;color:#6b7280;line-height:1.45;}
+.cb-always{font-size:.68rem;font-weight:700;color:#0596ED;background:rgba(5,150,237,.1);padding:.22rem .6rem;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+.cb-toggle{position:relative;width:40px;height:22px;flex-shrink:0;display:inline-block;}
+.cb-toggle input{opacity:0;width:0;height:0;position:absolute;}
+.cb-toggle-track{position:absolute;inset:0;background:#d1d5db;border-radius:11px;transition:background .2s;cursor:pointer;}
+.cb-toggle input:checked+.cb-toggle-track{background:#0596ED;}
+.cb-toggle-thumb{position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:transform .2s;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.25);}
+.cb-toggle input:checked~.cb-toggle-thumb{transform:translateX(18px);}
+.cb-toggle input:focus-visible+.cb-toggle-track{outline:2px solid #0596ED;outline-offset:2px;}
+.cb-modal-actions{display:flex;gap:.65rem;margin-top:1.5rem;justify-content:flex-end;}
+@media(max-width:600px){
+  .cb-inner{flex-direction:column;align-items:stretch;}
+  .cb-actions{justify-content:stretch;}
+  .cb-btn{flex:1;text-align:center;}
+  .cb-modal-actions{flex-direction:column;}
+  .cb-modal-actions .cb-btn{width:100%;}
+}
+</style>
 </head>
 <body>
 
@@ -424,6 +465,7 @@
   <div class="ft-btm">
     <span>&copy; 2026 Alnas Cleaning. Alle rechten voorbehouden.</span>
     <span>Est. 2003 · Antwerpen, België</span>
+    <span><button onclick="cbOpenModal()" style="background:none;border:none;color:inherit;cursor:pointer;font-family:inherit;font-size:inherit;padding:0;text-decoration:underline;">Cookie-instellingen</button></span>
   </div>
 </footer>
 
@@ -449,5 +491,74 @@ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 }));
 </script>
 
+<!-- COOKIE BANNER -->
+<div id="cb-banner" role="dialog" aria-label="Cookie-toestemming" aria-live="polite">
+  <div class="cb-inner">
+    <div class="cb-text">
+      <strong>Wij gebruiken cookies</strong>
+      <p>Wij gebruiken cookies voor de werking van de website en om uw ervaring te verbeteren. U kunt uw keuze op elk moment wijzigen via <button class="cb-inline-btn" onclick="cbOpenModal()">cookie-instellingen</button>.</p>
+    </div>
+    <div class="cb-actions">
+      <button class="cb-btn cb-btn-pref" id="cbPref">Voorkeuren</button>
+      <button class="cb-btn cb-btn-reject" id="cbReject">Alles weigeren</button>
+      <button class="cb-btn cb-btn-accept" id="cbAccept">Alles accepteren</button>
+    </div>
+  </div>
+</div>
+<div id="cb-overlay"></div>
+<div id="cb-modal" role="dialog" aria-modal="true" aria-label="Cookie-voorkeuren">
+  <div class="cb-modal-title">Cookie-voorkeuren</div>
+  <p class="cb-modal-desc">Kies welke cookies u toestaat. Noodzakelijke cookies zijn altijd actief en kunnen niet worden uitgeschakeld.</p>
+  <div class="cb-cat">
+    <div class="cb-cat-head">
+      <div><span class="cb-cat-name">Noodzakelijk</span><span class="cb-cat-info">Vereist voor de basiswerking van de website (sessie, formulieren, beveiliging).</span></div>
+      <span class="cb-always">Altijd actief</span>
+    </div>
+  </div>
+  <div class="cb-cat">
+    <div class="cb-cat-head">
+      <div><span class="cb-cat-name">Analytisch</span><span class="cb-cat-info">Helpt ons begrijpen hoe bezoekers de website gebruiken (bv. Google Analytics).</span></div>
+      <label class="cb-toggle" aria-label="Analytische cookies aan- of uitzetten"><input type="checkbox" id="cb-analytics"><span class="cb-toggle-track"></span><span class="cb-toggle-thumb"></span></label>
+    </div>
+  </div>
+  <div class="cb-cat">
+    <div class="cb-cat-head">
+      <div><span class="cb-cat-name">Voorkeuren</span><span class="cb-cat-info">Onthoudt uw taal, regio en andere persoonlijke instellingen.</span></div>
+      <label class="cb-toggle" aria-label="Voorkeurscookies aan- of uitzetten"><input type="checkbox" id="cb-prefs"><span class="cb-toggle-track"></span><span class="cb-toggle-thumb"></span></label>
+    </div>
+  </div>
+  <div class="cb-modal-actions">
+    <button class="cb-btn cb-btn-reject" id="cbModalReject">Alles weigeren</button>
+    <button class="cb-btn cb-btn-accept" id="cbModalSave">Opslaan</button>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='alnas_cookie_consent';
+  var banner=document.getElementById('cb-banner');
+  var overlay=document.getElementById('cb-overlay');
+  var modal=document.getElementById('cb-modal');
+  function getConsent(){try{return JSON.parse(localStorage.getItem(KEY));}catch(e){return null;}}
+  function save(a,p){localStorage.setItem(KEY,JSON.stringify({necessary:true,analytics:!!a,preferences:!!p,ts:new Date().toISOString()}));}
+  function hideBanner(){banner.classList.remove('cb-show');}
+  function showBanner(){banner.classList.add('cb-show');}
+  window.cbOpenModal=function(){
+    var c=getConsent();
+    document.getElementById('cb-analytics').checked=c?!!c.analytics:false;
+    document.getElementById('cb-prefs').checked=c?!!c.preferences:false;
+    overlay.classList.add('cb-show');
+    modal.classList.add('cb-show');
+  };
+  function closeModal(){overlay.classList.remove('cb-show');modal.classList.remove('cb-show');}
+  if(!getConsent()){setTimeout(showBanner,700);}
+  document.getElementById('cbAccept').onclick=function(){save(true,true);hideBanner();};
+  document.getElementById('cbReject').onclick=function(){save(false,false);hideBanner();};
+  document.getElementById('cbPref').onclick=cbOpenModal;
+  document.getElementById('cbModalReject').onclick=function(){save(false,false);closeModal();hideBanner();};
+  document.getElementById('cbModalSave').onclick=function(){save(document.getElementById('cb-analytics').checked,document.getElementById('cb-prefs').checked);closeModal();hideBanner();};
+  overlay.onclick=closeModal;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+})();
+</script>
 </body>
 </html>
