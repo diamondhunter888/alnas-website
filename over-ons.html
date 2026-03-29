@@ -119,6 +119,7 @@
     .waarden-header .overline{justify-content:center;}
     .waarden-header .overline::before{display:none;}
     .waarden-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    @media(max-width:1100px){.waarden-grid{grid-template-columns:repeat(2,1fr);}}
     .waarde-card{background:var(--soft);border-radius:16px;padding:2rem 1.8rem;border:1px solid var(--gray);transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
     .waarde-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.08);}
     .waarde-icon{font-size:2rem;margin-bottom:1rem;display:block;}
@@ -342,23 +343,23 @@
       <div class="stappen">
         <div class="stap reveal d1">
           <div class="stap-nr">01</div>
-          <div class="stap-title">Vrijblijvende aanvraag</div>
-          <div class="stap-desc">U neemt contact op via telefoon, e-mail of het formulier. Wij reageren binnen 24 uur met een eerste inschatting.</div>
+          <div class="stap-title">Contact &amp; aanvraag</div>
+          <div class="stap-desc">U neemt contact op via telefoon, WhatsApp of e-mail. Wij reageren snel met een eerste inschatting.</div>
         </div>
         <div class="stap reveal d2">
           <div class="stap-nr">02</div>
-          <div class="stap-title">Plaatsbezoek & offerte</div>
-          <div class="stap-desc">Wij komen langs om uw ruimte te bekijken en stellen een gedetailleerde offerte op maat samen — gratis en zonder verplichtingen.</div>
+          <div class="stap-title">Ter plaatse plaatsbeschrijving</div>
+          <div class="stap-desc">Wij komen langs om uw ruimte te bekijken. Zo begrijpen wij precies wat er nodig is — gratis en zonder verplichtingen.</div>
         </div>
         <div class="stap reveal d3">
           <div class="stap-nr">03</div>
-          <div class="stap-title">Planning & uitvoering</div>
-          <div class="stap-desc">Wij plannen de schoonmaak op uw tijdstip — ook buiten kantooruren. Ons team voert het werk professioneel en discreet uit.</div>
+          <div class="stap-title">Offerte op maat binnen 24u</div>
+          <div class="stap-desc">U ontvangt een gedetailleerde offerte op maat binnen 24 uur na het plaatsbezoek. Duidelijk en transparant.</div>
         </div>
         <div class="stap reveal d4">
           <div class="stap-nr">04</div>
-          <div class="stap-title">Kwaliteitscontrole</div>
-          <div class="stap-desc">Na afloop controleren wij het resultaat samen met u. Niet tevreden? Wij lossen het op — zonder discussie.</div>
+          <div class="stap-title">Uitvoering</div>
+          <div class="stap-desc">Ons team gaat aan de slag op het afgesproken tijdstip. Professioneel, discreet en volgens uw verwachtingen.</div>
         </div>
       </div>
     </div>
@@ -373,19 +374,29 @@
       </div>
       <div class="waarden-grid">
         <div class="waarde-card reveal d1">
-          <span class="waarde-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-          <h3>Kwaliteit</h3>
-          <p>Elk detail telt. Wij leveren consistente resultaten op elk project, groot of klein. Van de eerste afspraak tot de laatste handeling stellen wij kwaliteit centraal in alles wat wij doen.</p>
+          <span class="waarde-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <h3>Vast contactpersoon</h3>
+          <p>U heeft altijd één aanspreekpunt. Geen wisselende gezichten, geen uitleg herhalen — uw contactpersoon kent uw situatie en regelt alles voor u.</p>
         </div>
         <div class="waarde-card reveal d2">
           <span class="waarde-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg></span>
-          <h3>Vertrouwen</h3>
-          <p>Vaste medewerkers, vertrouwde aanpak. Wij werken met dezelfde mensen die uw ruimte leren kennen en begrijpen. Zo bouwt u een vertrouwensband op die verder gaat dan schoonmaken alleen.</p>
+          <h3>Vaste medewerker + vervanggarantie</h3>
+          <p>Bij periodieke schoonmaak werkt steeds dezelfde medewerker bij u. Bij verlof of ziekte zorgen wij altijd voor een vervanging — uw schema loopt nooit in de war.</p>
         </div>
         <div class="waarde-card reveal d3">
+          <span class="waarde-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+          <h3>Vast poetsschema</h3>
+          <p>Wij stellen een vast schema op dat perfect aansluit bij uw activiteiten — dagelijks, wekelijks of maandelijks. U weet altijd wanneer wij komen.</p>
+        </div>
+        <div class="waarde-card reveal d4">
+          <span class="waarde-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+          <h3>Digitale check-in app</h3>
+          <p>Onze medewerkers checken in en uit via een interne app met geolocatie. Zo heeft u altijd bevestiging dat de schoonmaak heeft plaatsgevonden — transparant en modern.</p>
+        </div>
+        <div class="waarde-card reveal d5">
           <span class="waarde-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22c0-8.284 6.716-15 15-15h5v5c0 8.284-6.716 15-15 15H2v-5z"/></svg></span>
-          <h3>Duurzaamheid</h3>
-          <p>Milieuvriendelijke producten waar mogelijk. Wij kiezen bewust voor reinigingsmiddelen met een lage ecologische voetafdruk, omdat een schone ruimte en een schone planeet hand in hand gaan.</p>
+          <h3>Ecologische producten &amp; machines</h3>
+          <p>Wij werken met gecertificeerde milieuvriendelijke reinigingsmiddelen en ecologische machines. Goed voor uw ruimte, goed voor de planeet.</p>
         </div>
       </div>
     </div>
