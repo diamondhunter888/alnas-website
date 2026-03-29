@@ -57,6 +57,21 @@
     .btn-fill{background:var(--b);color:#fff;padding:.9rem 1.9rem;border-radius:9px;font-weight:700;font-size:.87rem;text-decoration:none;letter-spacing:.2px;box-shadow:0 8px 26px rgba(5,150,237,.3);transition:background .15s,transform .2s;display:inline-flex;align-items:center;gap:.45rem;}
     .btn-fill:hover{background:var(--bh);transform:translateY(-2px);}
 
+    /* ── VIDEO ── */
+    .video-sec{padding:5rem 5%;background:var(--w);}
+    .video-wrap{max-width:800px;margin:2.5rem auto 0;border-radius:18px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.12);aspect-ratio:16/9;}
+    .video-wrap iframe{width:100%;height:100%;border:0;display:block;}
+
+    /* ── HOE TE WERK ── */
+    .hoe-sec{padding:5rem 5%;background:var(--soft);}
+    .stappen{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
+    .stap{background:var(--w);border-radius:18px;padding:2rem 1.6rem;position:relative;}
+    .stap-nr{font-size:2.8rem;font-weight:900;color:rgba(5,150,237,.08);line-height:1;margin-bottom:.75rem;}
+    .stap-title{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:.5rem;}
+    .stap-desc{font-size:.78rem;line-height:1.7;color:var(--dim);}
+    @media(max-width:900px){.stappen{grid-template-columns:1fr 1fr;}}
+    @media(max-width:560px){.stappen{grid-template-columns:1fr;}}
+
     footer{background:#0e1013;border-top:1px solid rgba(255,255,255,.05);padding:4rem 5% 2.5rem;}
     .ft-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.06);}
     .ft-brand-name{font-size:1rem;font-weight:900;color:#fff;margin-bottom:.7rem;}
@@ -215,11 +230,12 @@
     <button class="n-burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <div class="n-links"><a href="diensten.html">Diensten</a><a href="over-ons.html" class="active">Over ons</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
-    <div class="n-right"><a href="tel:0485919353" class="n-phone"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg>0485 91 93 53</a><a href="contact.html" class="n-cta">OFFERTE AANVRAGEN</a></div>
+    <div class="n-links"><a href="diensten.html">Diensten</a><a href="interventie.html">Interventie 24/7</a><a href="over-ons.html" class="active">Over ons</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+    <div class="n-right"><a href="tel:0382882226" class="n-phone"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg>03 828 82 26</a><a href="contact.html" class="n-cta">OFFERTE AANVRAGEN</a></div>
   </nav>
   <div class="n-mobile" id="nMobile">
     <a href="diensten.html">Diensten</a>
+    <a href="interventie.html">Interventie 24/7</a>
     <a href="over-ons.html">Over ons</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
@@ -296,12 +312,64 @@
     </div>
   </section>
 
-  <!-- 3. WAARDEN -->
+  <!-- 3. VIDEO -->
+  <section class="video-sec">
+    <div class="si">
+      <div style="text-align:center;max-width:600px;margin:0 auto" class="reveal">
+        <div class="overline" style="justify-content:center">Bekijk ons bedrijf</div>
+        <h2 class="h2" style="text-align:center">Alnas Cleaning in actie</h2>
+        <p style="font-size:.9rem;color:var(--dim);margin-top:.8rem;line-height:1.7">Zie hoe wij te werk gaan — van eerste contact tot het eindresultaat.</p>
+      </div>
+      <div class="video-wrap reveal d1">
+        <iframe
+          src="https://www.youtube.com/embed/Y0luk7m915M"
+          title="Alnas Cleaning — bedrijfsfilm"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. HOE TE WERK -->
+  <section class="hoe-sec">
+    <div class="si">
+      <div class="reveal">
+        <div class="overline">Hoe te werk</div>
+        <h2 class="h2">Van aanvraag tot<br/><span class="dim">vlekkeloos resultaat.</span></h2>
+      </div>
+      <div class="stappen">
+        <div class="stap reveal d1">
+          <div class="stap-nr">01</div>
+          <div class="stap-title">Vrijblijvende aanvraag</div>
+          <div class="stap-desc">U neemt contact op via telefoon, e-mail of het formulier. Wij reageren binnen 24 uur met een eerste inschatting.</div>
+        </div>
+        <div class="stap reveal d2">
+          <div class="stap-nr">02</div>
+          <div class="stap-title">Plaatsbezoek & offerte</div>
+          <div class="stap-desc">Wij komen langs om uw ruimte te bekijken en stellen een gedetailleerde offerte op maat samen — gratis en zonder verplichtingen.</div>
+        </div>
+        <div class="stap reveal d3">
+          <div class="stap-nr">03</div>
+          <div class="stap-title">Planning & uitvoering</div>
+          <div class="stap-desc">Wij plannen de schoonmaak op uw tijdstip — ook buiten kantooruren. Ons team voert het werk professioneel en discreet uit.</div>
+        </div>
+        <div class="stap reveal d4">
+          <div class="stap-nr">04</div>
+          <div class="stap-title">Kwaliteitscontrole</div>
+          <div class="stap-desc">Na afloop controleren wij het resultaat samen met u. Niet tevreden? Wij lossen het op — zonder discussie.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. WAAROM WIJ -->
   <section class="sec" style="background:var(--w);">
     <div class="si">
       <div class="waarden-header">
-        <div class="overline reveal">Onze waarden</div>
-        <h2 class="h2 reveal d1">Waar wij voor staan.</h2>
+        <div class="overline reveal">Waarom wij</div>
+        <h2 class="h2 reveal d1">Wat ons onderscheidt.</h2>
       </div>
       <div class="waarden-grid">
         <div class="waarde-card reveal d1">
@@ -338,7 +406,7 @@
       <div class="strip-sep"></div>
       <div class="strip-item">
         <span class="s-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-        <span class="s-text">Lokaal Antwerpen</span>
+        <span class="s-text">Lokaal Wommelgem</span>
       </div>
       <div class="strip-sep"></div>
       <div class="strip-item">
@@ -366,7 +434,7 @@
         <div class="ft-brand-name">Alnas <span>Cleaning</span></div>
         <p class="ft-brand-desc">Professioneel schoonmaakbedrijf in Antwerpen. Al meer dan 20 jaar uw betrouwbare partner voor schoonmaak op maat.</p>
         <div class="ft-contact">
-          <a href="tel:0485919353"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg> 0485 91 93 53</a>
+          <a href="tel:0382882226"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg> 03 828 82 26</a>
           <a href="mailto:info@alnas.be"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@alnas.be</a>
         </div>
       </div>
@@ -374,28 +442,28 @@
         <h5>Navigatie</h5>
         <a href="index.html">Home</a>
         <a href="diensten.html">Diensten</a>
+        <a href="interventie.html">Interventie 24/7</a>
         <a href="over-ons.html">Over ons</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="ft-col">
         <h5>Diensten</h5>
-        <a href="diensten.html">Kantoor</a>
-        <a href="diensten.html">Bouw</a>
-        <a href="diensten.html">Privé</a>
-        <a href="diensten.html">Events</a>
-        <a href="diensten.html">Medisch</a>
+        <a href="diensten.html#eenmalig">Eenmalig</a>
+        <a href="diensten.html#periodiek">Periodiek</a>
+        <a href="diensten.html#glazenwasserij">Glazenwasserij</a>
+        <a href="interventie.html">Interventie 24/7</a>
       </div>
       <div class="ft-col">
         <h5>Info</h5>
-        <span>Ma–Vr: 9u–18u</span>
-        <span>Za–Zo: 10u–16u</span>
         <span>BTW: BE0870 772 958</span>
+        <span>Draaiboomstraat 6</span>
+        <span>2160 Wommelgem</span>
       </div>
     </div>
     <div class="ft-btm">
       <span>© 2026 Alnas Cleaning. Alle rechten voorbehouden.</span>
-      <span>Antwerpen, België</span>
+      <span>Wommelgem, Antwerpen</span>
     <span><button onclick="cbOpenModal()" style="background:none;border:none;color:inherit;cursor:pointer;font-family:inherit;font-size:inherit;padding:0;text-decoration:underline;">Cookie-instellingen</button></span>
   </div>
   </footer>
