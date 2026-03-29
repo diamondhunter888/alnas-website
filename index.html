@@ -306,6 +306,8 @@ nav.scrolled {
   border:1.5px solid var(--gray);
   background:var(--soft);
   cursor:pointer;
+  text-decoration:none;
+  color:inherit;
   transition:background .2s, border-color .2s, box-shadow .2s, transform .18s;
 }
 .dr:hover {
@@ -323,6 +325,7 @@ nav.scrolled {
   padding-top:.15rem;
 }
 .dname-cell { min-width:0; }
+.dcat-label { font-size:.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--b); margin-bottom:.3rem; }
 .dname { font-size:.9rem; font-weight:700; color:var(--text); line-height:1.3; }
 .ddesc { font-size:.76rem; color:var(--dim); margin-top:.4rem; line-height:1.55; }
 .dtags-cell { display:flex; align-items:flex-start; padding-top:.1rem; }
@@ -652,6 +655,7 @@ nav.open .n-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)
 
   <div class="n-links">
     <a href="diensten.html">Diensten</a>
+    <a href="interventie.html">Interventie 24/7</a>
     <a href="over-ons.html">Over ons</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
@@ -668,6 +672,7 @@ nav.open .n-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)
 
 <div class="n-mobile" id="nMobile">
   <a href="diensten.html">Diensten</a>
+  <a href="interventie.html">Interventie 24/7</a>
   <a href="over-ons.html">Over ons</a>
   <a href="faq.html">FAQ</a>
   <a href="contact.html">Contact</a>
@@ -761,14 +766,10 @@ nav.open .n-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)
       <a href="contact.html" class="link-arr">OFFERTE AANVRAGEN →</a>
     </div>
     <div class="dlist reveal">
-      <div class="dr"><span class="dn">01</span><div class="dname-cell"><div class="dname">Algemene schoonmaak</div><div class="ddesc">Dagelijks, wekelijks of maandelijks onderhoud van kantoren, winkels en bedrijfsruimten.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Kantoren</span><span class="dtag">Sanitair</span><span class="dtag">Routines</span></div></div><span class="da">→</span></div>
-      <div class="dr"><span class="dn">02</span><div class="dname-cell"><div class="dname">Bouw- &amp; opleveringsschoonmaak</div><div class="ddesc">Intensieve reiniging na verbouwing of nieuwbouw, klaar voor oplevering.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Stofverwijdering</span><span class="dtag">Naareiniging</span><span class="dtag">Vlakreiniging</span></div></div><span class="da">→</span></div>
-      <div class="dr"><span class="dn">03</span><div class="dname-cell"><div class="dname">Kantoren &amp; commerciële ruimtes</div><div class="ddesc">Structureel onderhoud voor professionele werkomgevingen met constante kwaliteit.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Open kantoor</span><span class="dtag">Vergaderruimtes</span><span class="dtag">Recepties</span><span class="dtag">Winkelruimtes</span></div></div><span class="da">→</span></div>
-      <div class="dr"><span class="dn">04</span><div class="dname-cell"><div class="dname">Gemeenschappelijke delen</div><div class="ddesc">Trappenhuizen, liften en inkomzones professioneel onderhouden.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Trappen</span><span class="dtag">Liften</span><span class="dtag">Gangen</span><span class="dtag">Kelders</span></div></div><span class="da">→</span></div>
-      <div class="dr"><span class="dn">05</span><div class="dname-cell"><div class="dname">Vloer- &amp; tapijtonderhoud</div><div class="ddesc">Gespecialiseerde behandeling en dieptereiniging van alle vloertypes.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Tapijt</span><span class="dtag">Hardwood</span><span class="dtag">Vinyl</span><span class="dtag">Parket</span></div></div><span class="da">→</span></div>
-      <div class="dr"><span class="dn">06</span><div class="dname-cell"><div class="dname">Rollend materieel</div><div class="ddesc">Interieur- en exterieurreiniging van voertuigen en wagenparken.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Bestelwagens</span><span class="dtag">Vrachtwagens</span><span class="dtag">Machines</span></div></div><span class="da">→</span></div>
-      <div class="dr"><span class="dn">07</span><div class="dname-cell"><div class="dname">Dieptereiniging &amp; ontsmetting</div><div class="ddesc">Klinische desinfectie voor maximale hygiëne en allergeenreductie.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Ontsmetting</span><span class="dtag">Allergenen</span><span class="dtag">Schimmels</span></div></div><span class="da">→</span></div>
-      <div class="dr"><span class="dn">08</span><div class="dname-cell"><div class="dname">Dokterspraktijken</div><div class="ddesc">Reiniging volgens strikte medische hygiëneprotocollen.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Wachtkamers</span><span class="dtag">Behandelruimten</span><span class="dtag">Sanitair</span></div></div><span class="da">→</span></div>
+      <a class="dr" href="diensten.html#eenmalig"><span class="dn">01</span><div class="dname-cell"><div class="dcat-label">Eenmalig</div><div class="dname">Opleveringsschoonmaak &amp; na renovatie</div><div class="ddesc">Grondige reiniging na bouw of verhuis — klaar voor oplevering of intrek.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Oplevering</span><span class="dtag">Na renovatie</span><span class="dtag">Na verhuis</span></div></div><span class="da">→</span></a>
+      <a class="dr" href="diensten.html#periodiek"><span class="dn">02</span><div class="dname-cell"><div class="dcat-label">Periodiek</div><div class="dname">Kantoren, scholen &amp; bedrijfsruimtes</div><div class="ddesc">Regelmatig onderhoud op maat: kantoren, scholen, praktijken, magazijnen en rollend materieel.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Kantoren</span><span class="dtag">Scholen</span><span class="dtag">Rollend materieel</span><span class="dtag">Vloeronderhoud</span></div></div><span class="da">→</span></a>
+      <a class="dr" href="diensten.html#glazenwasserij"><span class="dn">03</span><div class="dname-cell"><div class="dcat-label">Glazenwasserij</div><div class="dname">Op hoogte &amp; met osmose</div><div class="ddesc">Professioneel ramen wassen, ook op hoogte — met osmosewater voor vlekkeloos resultaat.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Op hoogte</span><span class="dtag">Osmose</span><span class="dtag">Gevelramen</span></div></div><span class="da">→</span></a>
+      <a class="dr" href="interventie.html"><span class="dn">04</span><div class="dname-cell"><div class="dcat-label">Interventie 24/7</div><div class="dname">Noodschoonmaak dag &amp; nacht</div><div class="ddesc">Altijd bereikbaar voor dringende schoonmaak — ook 's nachts, in het weekend en op feestdagen.</div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">24/7</span><span class="dtag">Noodgevallen</span><span class="dtag">Snel ter plaatse</span></div></div><span class="da">→</span></a>
     </div>
   </div>
 </section>
@@ -928,11 +929,11 @@ nav.open .n-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)
     </div>
     <div class="ft-col">
       <h5>Navigatie</h5>
-      <a href="index.html">Home</a><a href="diensten.html">Diensten</a><a href="over-ons.html">Over ons</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+      <a href="index.html">Home</a><a href="diensten.html">Diensten</a><a href="interventie.html">Interventie 24/7</a><a href="over-ons.html">Over ons</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
     </div>
     <div class="ft-col">
       <h5>Diensten</h5>
-      <a href="diensten.html">Kantoor</a><a href="diensten.html">Bouw</a><a href="diensten.html">Privé</a><a href="diensten.html">Events</a><a href="diensten.html">Medisch</a>
+      <a href="diensten.html#eenmalig">Eenmalig</a><a href="diensten.html#periodiek">Periodiek</a><a href="diensten.html#glazenwasserij">Glazenwasserij</a><a href="interventie.html">Interventie 24/7</a>
     </div>
     <div class="ft-col">
       <h5>Info</h5>

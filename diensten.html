@@ -30,6 +30,9 @@
     .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
     .reveal.in{opacity:1;transform:translateY(0);}
     .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+    .overline-c{justify-content:center;}
+    .overline-c::before{display:none;}
+    .dcat-header{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--b);padding:.4rem 0;margin-top:1.5rem;margin-bottom:.25rem;border-bottom:1.5px solid rgba(5,150,237,.15);}
 
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 5%;background:rgba(254,254,254,.94);border-bottom:1px solid var(--gray);box-shadow:0 2px 24px rgba(0,0,0,.05);backdrop-filter:blur(18px);}
@@ -208,9 +211,10 @@
       <a href="over-ons.html">Over ons</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
+      <a href="interventie.html">Interventie 24/7</a>
     </div>
     <div class="n-right">
-      <a href="tel:0485919353" class="n-phone"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg>0485 91 93 53</a>
+      <a href="tel:0382882226" class="n-phone"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg>03 828 82 26</a>
       <a href="contact.html" class="n-cta">OFFERTE AANVRAGEN</a>
     </div>
   </nav>
@@ -218,6 +222,7 @@
     <a href="diensten.html">Diensten</a>
     <a href="over-ons.html">Over ons</a>
     <a href="faq.html">FAQ</a>
+    <a href="interventie.html">Interventie 24/7</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html" class="n-mob-cta">Offerte aanvragen</a>
   </div>
@@ -242,245 +247,48 @@
   <section class="sec">
     <div class="si">
       <div class="overline reveal">Volledig overzicht</div>
-      <h2 class="h2 reveal d1" style="margin-bottom:2.5rem;">14 diensten, <span class="dim">één aanspreekpunt.</span></h2>
+      <h2 class="h2 reveal d1" style="margin-bottom:2.5rem;">Ons aanbod, <span class="dim">één aanspreekpunt.</span></h2>
 
       <div class="dlist">
 
-        <a href="contact.html" class="dr reveal">
-          <div class="dn">01</div>
-          <div class="dname-cell">
-            <div class="dname">Algemene schoonmaak</div>
-            <div class="ddesc">Dagelijks, wekelijks of maandelijks onderhoud van uw ruimtes, afgestemd op uw ritme en noden.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Kantoren</span>
-              <span class="dtag">Sanitair</span>
-              <span class="dtag">Keukens</span>
-              <span class="dtag">Gemeenschappelijke zones</span>
-            </div>
-          </div>
-        </a>
+        <div class="dcat-header" id="periodiek">Periodieke schoonmaak</div>
+        <a href="kantoren.html" class="dr reveal"><div class="dn">01</div><div class="dname-cell"><div class="dname">Kantoren</div><div class="ddesc">Dagelijks, wekelijks of maandelijks onderhoud van uw kantoorruimte, afgestemd op uw ritme.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Open kantoor</span><span class="dtag">Vergaderzalen</span><span class="dtag">Sanitair</span></div></div></a>
+        <a href="commerciele-ruimtes.html" class="dr reveal d1"><div class="dn">02</div><div class="dname-cell"><div class="dname">Commerciële ruimtes</div><div class="ddesc">Professioneel onderhoud van winkels, showrooms en handelspanden voor een verzorgde uitstraling.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Winkel</span><span class="dtag">Showroom</span><span class="dtag">Handelspand</span></div></div></a>
+        <a href="dokterspraktijken.html" class="dr reveal d2"><div class="dn">03</div><div class="dname-cell"><div class="dname">Dokterspraktijken</div><div class="ddesc">Reiniging volgens strikte medische hygiëneprotocollen voor wachtkamers en behandelruimtes.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Medisch</span><span class="dtag">Wachtkamer</span><span class="dtag">Hygiëne</span></div></div></a>
+        <a href="rollend-materieel.html" class="dr reveal d3"><div class="dn">04</div><div class="dname-cell"><div class="dname">Rollend materieel</div><div class="ddesc">Specialiteit van het huis: grondige reiniging van passagiersbussen, vrachtwagens en bedrijfsvoertuigen.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Bussen</span><span class="dtag">Vrachtwagens</span><span class="dtag">Voertuigen</span></div></div></a>
+        <a href="gemeenschappelijke-delen.html" class="dr reveal"><div class="dn">05</div><div class="dname-cell"><div class="dname">Gemeenschappelijke delen</div><div class="ddesc">Trappenhuizen, liften en inkomzones verzorgd en representatief voor bewoners en bezoekers.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Trappen</span><span class="dtag">Liften</span><span class="dtag">Gangen</span></div></div></a>
+        <a href="magazijnen-garages.html" class="dr reveal d1"><div class="dn">06</div><div class="dname-cell"><div class="dname">Magazijnen &amp; garages</div><div class="ddesc">Industriële reiniging van grote ruimtes met aangepast materieel voor een veilige werkomgeving.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Magazijn</span><span class="dtag">Garage</span><span class="dtag">Werkplaats</span></div></div></a>
+        <a href="evenementen.html" class="dr reveal d2"><div class="dn">07</div><div class="dname-cell"><div class="dname">Evenementen</div><div class="ddesc">Voor- en naschoonmaak bij evenementen, zodat uw locatie klaar is voor aanvang en netjes achterblijft.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Zaalreiniging</span><span class="dtag">Voor/Na</span></div></div></a>
+        <a href="hotels-horecazaken.html" class="dr reveal d3"><div class="dn">08</div><div class="dname-cell"><div class="dname">Hotels &amp; horecazaken</div><div class="ddesc">Professionele reiniging voor hotels, restaurants en cafés met oog voor hygiëne en gastvrijheid.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Hotel</span><span class="dtag">Restaurant</span><span class="dtag">Café</span></div></div></a>
 
-        <a href="contact.html" class="dr reveal d1">
-          <div class="dn">02</div>
-          <div class="dname-cell">
-            <div class="dname">Bouw- &amp; opleveringsschoonmaak</div>
-            <div class="ddesc">Na verbouwing of nieuwbouw brengen wij uw pand tot in de puntjes in orde voor oplevering of intrek.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Stofverwijdering</span>
-              <span class="dtag">Raamreiniging</span>
-              <span class="dtag">Vloerbehandeling</span>
-              <span class="dtag">Detailreiniging</span>
-            </div>
-          </div>
-        </a>
+        <div class="dcat-header" id="eenmalig" style="margin-top:2rem;">Eenmalige schoonmaak</div>
+        <a href="na-renovatie.html" class="dr reveal"><div class="dn">09</div><div class="dname-cell"><div class="dname">Na renovatie</div><div class="ddesc">Grondige reiniging na verbouwing of renovatiewerken — klaar voor oplevering of intrek.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Bouwstof</span><span class="dtag">Oplevering</span><span class="dtag">Renovatie</span></div></div></a>
+        <a href="na-verhuis.html" class="dr reveal d1"><div class="dn">10</div><div class="dname-cell"><div class="dname">Na verhuis</div><div class="ddesc">Ruimte spic en span achtergelaten of klaargemaakt voor nieuwe bewoners of huurders.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Uitverhuizing</span><span class="dtag">Ingebruikname</span></div></div></a>
+        <a href="dieptereiniging.html" class="dr reveal d2"><div class="dn">11</div><div class="dname-cell"><div class="dname">Dieptereiniging</div><div class="ddesc">Intensieve reiniging van moeilijk bereikbare hoeken, sanitair, keukenapparatuur en oppervlakken.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Intensief</span><span class="dtag">Grondig</span><span class="dtag">Eenmalig</span></div></div></a>
+        <a href="machinale-vloerreinigen.html" class="dr reveal d3"><div class="dn">12</div><div class="dname-cell"><div class="dname">Machinale vloerreinigen</div><div class="ddesc">Professionele behandeling van alle vloertypes: tapijt, parket, vinyl en hardsteen.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Tapijt</span><span class="dtag">Parket</span><span class="dtag">Vinyl</span></div></div></a>
 
-        <a href="contact.html" class="dr reveal d2">
-          <div class="dn">03</div>
-          <div class="dname-cell">
-            <div class="dname">Kantoren &amp; commerciële ruimtes</div>
-            <div class="ddesc">Structureel onderhoud van werkomgevingen zodat uw team steeds in een frisse, productieve omgeving werkt.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Open kantoor</span>
-              <span class="dtag">Vergaderzalen</span>
-              <span class="dtag">Recepties</span>
-              <span class="dtag">Winkelpanden</span>
-            </div>
-          </div>
-        </a>
+        <div class="dcat-header" id="glazenwasserij" style="margin-top:2rem;">Glazenwasserij</div>
+        <a href="glazenwasserij.html" class="dr reveal"><div class="dn">13</div><div class="dname-cell"><div class="dname">Glazenwasserij</div><div class="ddesc">Ramen reinigen op hoogte en met osmosewater voor kristalheldere ramen zonder kalksporen.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Op hoogte</span><span class="dtag">Osmosewater</span><span class="dtag">Ramen</span></div></div></a>
 
-        <a href="contact.html" class="dr reveal d3">
-          <div class="dn">04</div>
-          <div class="dname-cell">
-            <div class="dname">Gemeenschappelijke delen</div>
-            <div class="ddesc">Trappenhuizen, liften en inkomzones verzorgd en representatief voor bewoners en bezoekers.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Trappen</span>
-              <span class="dtag">Liften</span>
-              <span class="dtag">Gangen</span>
-              <span class="dtag">Inkomhallen</span>
-            </div>
-          </div>
-        </a>
+        <div class="dcat-header" style="margin-top:2rem;">Interventie 24/7</div>
+        <a href="interventie.html" class="dr reveal"><div class="dn">14</div><div class="dname-cell"><div class="dname">Waterschade</div><div class="ddesc">Snelle noodinterventie bij waterschade, overstromingen of lekkages — dag en nacht bereikbaar.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Spoed</span><span class="dtag">24/7</span><span class="dtag">Noodgeval</span></div></div></a>
+        <a href="interventie.html" class="dr reveal d1"><div class="dn">15</div><div class="dname-cell"><div class="dname">Brandschade</div><div class="ddesc">Professionele reiniging na brand en roetschade, snel en discreet uitgevoerd.</div></div><div></div><div class="dtags-cell"><div class="dtags"><span class="dtag">Brand</span><span class="dtag">Roet</span><span class="dtag">Noodgeval</span></div></div></a>
 
-        <a href="contact.html" class="dr reveal">
-          <div class="dn">05</div>
-          <div class="dname-cell">
-            <div class="dname">Vloer- &amp; tapijtonderhoud</div>
-            <div class="ddesc">Professionele behandeling van alle vloertypes: van tapijt en vinyl tot parket en hardsteen.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Tapijt</span>
-              <span class="dtag">Hardsteen</span>
-              <span class="dtag">Vinyl</span>
-              <span class="dtag">Parket</span>
-            </div>
-          </div>
-        </a>
+      </div>
+    </div>
+  </section>
 
-        <a href="contact.html" class="dr reveal d1">
-          <div class="dn">06</div>
-          <div class="dname-cell">
-            <div class="dname">Rollend materieel</div>
-            <div class="ddesc">Reiniging van voertuigen en wagenparken voor bedrijven die hun vloot representatief willen houden.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Bestelwagens</span>
-              <span class="dtag">Vrachtwagens</span>
-              <span class="dtag">Bedrijfsvoertuigen</span>
-              <span class="dtag">Machines</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="dr reveal d2">
-          <div class="dn">07</div>
-          <div class="dname-cell">
-            <div class="dname">Dieptereiniging &amp; ontsmetting</div>
-            <div class="ddesc">Klinische desinfectie van ruimtes met verhoogde hygiëne-eisen, inclusief behandeling van allergenen en bacteriën.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Ontsmetting</span>
-              <span class="dtag">Allergenen</span>
-              <span class="dtag">Schimmels</span>
-              <span class="dtag">Bacteriën</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="dr reveal d3">
-          <div class="dn">08</div>
-          <div class="dname-cell">
-            <div class="dname">Dokterspraktijken</div>
-            <div class="ddesc">Reiniging volgens medische hygiëneprotocollen voor een veilige en steriele omgeving voor patiënten en personeel.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Wachtkamers</span>
-              <span class="dtag">Behandelruimten</span>
-              <span class="dtag">Sanitair</span>
-              <span class="dtag">Sterilisatie</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="dr reveal">
-          <div class="dn">09</div>
-          <div class="dname-cell">
-            <div class="dname">Verhuisschoonmaak</div>
-            <div class="ddesc">In- of uitverhuizing? Wij zorgen dat uw woning of pand in perfecte toestand wordt achtergelaten of ontvangen.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Leegstandsreiniging</span>
-              <span class="dtag">Eindreiniging</span>
-              <span class="dtag">Oplevertoestand</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="dr reveal d1">
-          <div class="dn">10</div>
-          <div class="dname-cell">
-            <div class="dname">Short-stay verhuur</div>
-            <div class="ddesc">Snelle en grondige beurten voor vakantiewoningen en Airbnb-verhuur tussen gasten, met oog voor detail.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Airbnb</span>
-              <span class="dtag">B&amp;B</span>
-              <span class="dtag">Vakantiewoning</span>
-              <span class="dtag">Snelle omzet</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="dr reveal d2">
-          <div class="dn">11</div>
-          <div class="dname-cell">
-            <div class="dname">Evenementen</div>
-            <div class="ddesc">Voor- en naschoonmaak bij evenementen, zodat uw locatie klaar is voor aanvang en onberispelijk achterblijft.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Opbouw</span>
-              <span class="dtag">Afbraak</span>
-              <span class="dtag">Zaalreiniging</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="dr reveal d3">
-          <div class="dn">12</div>
-          <div class="dname-cell">
-            <div class="dname">Magazijnen &amp; garages</div>
-            <div class="ddesc">Industriële reiniging van grote ruimtes met aangepast materieel voor een veilige en nette werkomgeving.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Industrieel</span>
-              <span class="dtag">Magazijn</span>
-              <span class="dtag">Werkplaats</span>
-              <span class="dtag">Parkeergarage</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="dr reveal">
-          <div class="dn">13</div>
-          <div class="dname-cell">
-            <div class="dname">Terrassen &amp; opritten</div>
-            <div class="ddesc">Buitenreiniging met hogedrukapparatuur voor terrassen, opritten en voetpaden die er weer als nieuw uitzien.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Hogedrukreiniging</span>
-              <span class="dtag">Terras</span>
-              <span class="dtag">Oprit</span>
-              <span class="dtag">Voetpaden</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="dr reveal d1">
-          <div class="dn">14</div>
-          <div class="dname-cell">
-            <div class="dname">Medische praktijken</div>
-            <div class="ddesc">Reiniging volgens strikte hygiënenormen voor apotheken, klinieken en ziekenhuizen met gespecialiseerde producten.</div>
-          </div>
-          <div></div>
-          <div class="dtags-cell">
-            <div class="dtags">
-              <span class="dtag">Apotheken</span>
-              <span class="dtag">Ziekenhuizen</span>
-              <span class="dtag">Klinieken</span>
-            </div>
-          </div>
-        </a>
-
+  <!-- TRUSTLOCAL REVIEWS -->
+  <section class="sec" style="background:#F0FDFE;">
+    <div class="si">
+      <div style="text-align:center;margin-bottom:3rem" class="reveal">
+        <div class="overline overline-c">Klantervaringen</div>
+        <div class="h2" style="text-align:center;">Wat onze klanten zeggen</div>
+        <p style="font-size:.9rem;color:var(--dim);margin-top:1rem;max-width:520px;margin-left:auto;margin-right:auto;">Gecertificeerde reviews via TrustLocal</p>
+      </div>
+      <div class="reveal" style="display:flex;justify-content:center;">
+        <script async src="https://static.trustlocal.be/widget/widget_v2.js"></script>
+        <div class="trustlocal-widget" data-id="niSFxxugnca56OBbLlfgJmFzpSw_vf806_lQBFoWzRg8" data-language-code="nl" data-country-code="BE" data-badge="default" data-quote="default" data-size="small" data-type="landscape" data-border="default" data-theme="light" data-background="default" data-google="default"></div>
       </div>
     </div>
   </section>
@@ -525,15 +333,15 @@
         <div class="ft-brand-name">Alnas <span>Cleaning</span></div>
         <p class="ft-brand-desc">Professioneel schoonmaakbedrijf in Antwerpen. Al meer dan 20 jaar uw betrouwbare partner voor schoonmaak op maat.</p>
         <div class="ft-contact">
-          <a href="tel:0485919353"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg> 0485 91 93 53</a>
+          <a href="tel:0382882226"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg> 03 828 82 26</a>
           <a href="mailto:info@alnas.be"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@alnas.be</a>
         </div>
       </div>
-      <div class="ft-col"><h5>Navigatie</h5><a href="index.html">Home</a><a href="diensten.html">Diensten</a><a href="over-ons.html">Over ons</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
-      <div class="ft-col"><h5>Diensten</h5><a href="diensten.html">Kantoor</a><a href="diensten.html">Bouw</a><a href="diensten.html">Privé</a><a href="diensten.html">Events</a><a href="diensten.html">Medisch</a></div>
-      <div class="ft-col"><h5>Info</h5><span>Ma–Vr: 9u–18u</span><span>Za–Zo: 10u–16u</span><span>BTW: BE0870 772 958</span></div>
+      <div class="ft-col"><h5>Navigatie</h5><a href="index.html">Home</a><a href="diensten.html">Diensten</a><a href="over-ons.html">Over ons</a><a href="faq.html">FAQ</a><a href="interventie.html">Interventie 24/7</a><a href="contact.html">Contact</a></div>
+      <div class="ft-col"><h5>Diensten</h5><a href="kantoren.html">Kantoorschoonmaak</a><a href="rollend-materieel.html">Rollend materieel</a><a href="na-renovatie.html">Opleveringsschoonmaak</a><a href="glazenwasserij.html">Glazenwasserij</a><a href="interventie.html">Interventie 24/7</a></div>
+      <div class="ft-col"><h5>Info</h5><span>BTW: BE0870 772 958</span><span>Draaiboomstraat 6</span><span>2160 Wommelgem</span></div>
     </div>
-    <div class="ft-btm"><span>© 2026 Alnas Cleaning. Alle rechten voorbehouden.</span><span>Antwerpen, België</span>
+    <div class="ft-btm"><span>© 2026 Alnas Cleaning. Alle rechten voorbehouden.</span><span>Wommelgem, Antwerpen</span>
     <span><button onclick="cbOpenModal()" style="background:none;border:none;color:inherit;cursor:pointer;font-family:inherit;font-size:inherit;padding:0;text-decoration:underline;">Cookie-instellingen</button></span>
   </div>
   </footer>
