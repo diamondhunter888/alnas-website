@@ -5,6 +5,9 @@ index-original-backup.html
 # Brainstorm/superpowers working files
 .superpowers/
 
+# Netlify CLI local config (contains local Windows paths)
+.netlify/
+
 # OS
 .DS_Store
 Thumbs.db
