@@ -186,12 +186,14 @@ nav.open .n-burger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg)
 
 /* ── FEATURES GRID ── */
 .feat-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
   gap:1.5rem;
   margin-top:3rem;
 }
 .feat-card {
+  flex:0 0 calc((100% - 3rem) / 3);
   background:var(--w);
   border:1.5px solid var(--gray);
   border-radius:20px;
@@ -281,14 +283,14 @@ footer { background:var(--dark); color:rgba(255,255,255,.65); }
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px) {
-  .feat-grid { grid-template-columns:1fr 1fr; }
+  .feat-grid .feat-card { flex-basis:calc((100% - 1.5rem) / 2); }
   .ft-top { grid-template-columns:1fr 1fr; }
   .n-links, .n-right { display:none; }
   .n-burger { display:flex; }
   .n-mobile { display:flex; }
 }
 @media(max-width:600px) {
-  .feat-grid { grid-template-columns:1fr; }
+  .feat-grid .feat-card { flex-basis:100%; }
   .ft-top { grid-template-columns:1fr; gap:2rem; }
   .ft-btm { flex-direction:column; align-items:flex-start; gap:.4rem; }
   .cb-inner { flex-direction:column; align-items:stretch; }
