@@ -77,6 +77,9 @@ nav.scrolled {
   transition:background .15s, transform .15s, box-shadow .15s;
 }
 .n-cta:hover { background:var(--ctah); transform:translateY(-1px); box-shadow:0 8px 22px rgba(34,197,94,.45); }
+.n-whatsapp { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:#25D366; color:#fff; flex-shrink:0; text-decoration:none; transition:background .15s,transform .15s; }
+.n-whatsapp:hover { background:#1ebe5d; transform:scale(1.08); }
+.n-mob-wa { background:#25D366!important; color:#fff!important; text-align:center; border-radius:9px; padding:.85rem!important; margin-top:.5rem; border-bottom:none!important; font-weight:700!important; display:block; }
 
 /* Mobile nav */
 .n-burger {
