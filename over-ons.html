@@ -72,6 +72,12 @@
     .stap-nr{width:52px;height:52px;border-radius:14px;background:rgba(5,150,237,.12);color:var(--b);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;flex-shrink:0;}
     .stap-title{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:.5rem;}
     .stap-desc{font-size:.78rem;line-height:1.7;color:var(--dim);}
+    .stap-num{font-size:.62rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--b);margin-bottom:.6rem;display:block;}
+    .stappen-wrap{position:relative;}
+    .stap-arrow{display:none;position:absolute;top:50%;transform:translateY(-50%);color:var(--b);opacity:.35;pointer-events:none;}
+    @media(min-width:901px){
+      .stap-arrow{display:block;}
+    }
     @media(max-width:900px){.stappen{grid-template-columns:1fr 1fr;}}
     @media(max-width:560px){.stappen{grid-template-columns:1fr;}}
 
@@ -344,26 +350,32 @@
         <div class="overline">Hoe te werk</div>
         <h2 class="h2">Van aanvraag tot<br/><span class="dim">vlekkeloos resultaat.</span></h2>
       </div>
-      <div class="stappen">
-        <div class="stap reveal d1">
-          <div class="stap-nr"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg></div>
-          <div class="stap-title">Contact &amp; aanvraag</div>
-          <div class="stap-desc">U neemt contact op via telefoon, WhatsApp of e-mail. Wij reageren snel met een eerste inschatting.</div>
-        </div>
-        <div class="stap reveal d2">
-          <div class="stap-nr"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div class="stap-title">Ter plaatse plaatsbeschrijving</div>
-          <div class="stap-desc">Wij komen langs om uw ruimte te bekijken. Zo begrijpen wij precies wat er nodig is — gratis en zonder verplichtingen.</div>
-        </div>
-        <div class="stap reveal d3">
-          <div class="stap-nr"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="stap-title">Offerte op maat binnen 24u</div>
-          <div class="stap-desc">U ontvangt een gedetailleerde offerte op maat binnen 24 uur na het plaatsbezoek. Duidelijk en transparant.</div>
-        </div>
-        <div class="stap reveal d4">
-          <div class="stap-nr"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-          <div class="stap-title">Uitvoering</div>
-          <div class="stap-desc">Ons team gaat aan de slag op het afgesproken tijdstip. Professioneel, discreet en volgens uw verwachtingen.</div>
+      <div class="stappen-wrap">
+        <div class="stappen">
+          <div class="stap reveal d1">
+            <span class="stap-num">Stap 01</span>
+            <div class="stap-nr"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg></div>
+            <div class="stap-title">Contact &amp; aanvraag</div>
+            <div class="stap-desc">U neemt contact op via telefoon, WhatsApp of e-mail. Wij reageren snel met een eerste inschatting.</div>
+          </div>
+          <div class="stap reveal d2">
+            <span class="stap-num">Stap 02</span>
+            <div class="stap-nr"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="stap-title">Ter plaatse plaatsbeschrijving</div>
+            <div class="stap-desc">Wij komen langs om uw ruimte te bekijken. Zo begrijpen wij precies wat er nodig is — gratis en zonder verplichtingen.</div>
+          </div>
+          <div class="stap reveal d3">
+            <span class="stap-num">Stap 03</span>
+            <div class="stap-nr"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="stap-title">Offerte op maat binnen 24u</div>
+            <div class="stap-desc">U ontvangt een gedetailleerde offerte op maat binnen 24 uur na het plaatsbezoek. Duidelijk en transparant.</div>
+          </div>
+          <div class="stap reveal d4">
+            <span class="stap-num">Stap 04</span>
+            <div class="stap-nr"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+            <div class="stap-title">Uitvoering</div>
+            <div class="stap-desc">Ons team gaat aan de slag op het afgesproken tijdstip. Professioneel, discreet en volgens uw verwachtingen.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -444,44 +456,42 @@
   </section>
 
   <footer>
-    <div class="ft-top">
-      <div>
-        <div class="ft-brand-name">Alnas <span>Cleaning</span></div>
-        <p class="ft-brand-desc">Professioneel schoonmaakbedrijf in Antwerpen. Al meer dan 20 jaar uw betrouwbare partner voor schoonmaak op maat.</p>
-        <div class="ft-contact">
-          <a href="tel:0382882226"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg> 03 828 82 26</a>
-          <a href="mailto:info@alnas.be"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@alnas.be</a>
-        </div>
-      </div>
-      <div class="ft-col">
-        <h5>Navigatie</h5>
-        <a href="index.html">Home</a>
-        <a href="diensten.html">Diensten</a>
-        <a href="interventie.html">Interventie 24/7</a>
-        <a href="over-ons.html">Over ons</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="ft-col">
-        <h5>Diensten</h5>
-        <a href="diensten.html#eenmalig">Eenmalig</a>
-        <a href="diensten.html#periodiek">Periodiek</a>
-        <a href="diensten.html#glazenwasserij">Glazenwasserij</a>
-        <a href="interventie.html">Interventie 24/7</a>
-      </div>
-      <div class="ft-col">
-        <h5>Info</h5>
-        <span>BTW: BE0870 772 958</span>
-        <span>Draaiboomstraat 6</span>
-        <span>2160 Wommelgem</span>
+  <div class="ft-top">
+    <div>
+      <div class="ft-brand-name">Alnas <span>Cleaning</span></div>
+      <p class="ft-brand-desc">Familiebedrijf in Wommelgem, actief in de regio Antwerpen. Vaste ploeg, persoonlijke aanpak en meer dan 20 jaar vakmanschap.</p>
+      <div class="ft-contact">
+        <a href="tel:0382882226">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.31 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg>
+          03 828 82 26
+        </a>
+        <a href="mailto:info@alnas.be">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@alnas.be
+        </a>
       </div>
     </div>
-    <div class="ft-btm">
-      <span>© 2026 Alnas Cleaning. Alle rechten voorbehouden.</span>
-      <span>Wommelgem, Antwerpen</span>
+    <div class="ft-col">
+      <h5>Navigatie</h5>
+      <a href="index.html">Home</a><a href="diensten.html">Diensten</a><a href="interventie.html">Interventie 24/7</a><a href="over-ons.html">Over ons</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="ft-col">
+      <h5>Diensten</h5>
+      <a href="diensten.html#eenmalig">Eenmalig</a><a href="diensten.html#periodiek">Periodiek</a><a href="diensten.html#glazenwasserij">Glazenwasserij</a><a href="interventie.html">Interventie 24/7</a>
+    </div>
+    <div class="ft-col">
+      <h5>Info</h5>
+      <span>Draaiboomstraat 6</span>
+      <span>2160 Wommelgem</span>
+      <span>BTW: BE0870 772 958</span>
+    </div>
+  </div>
+  <div class="ft-btm">
+    <span>© 2026 Alnas Cleaning. Alle rechten voorbehouden.</span>
+    <span>Wommelgem, Antwerpen</span>
     <span><button onclick="cbOpenModal()" style="background:none;border:none;color:inherit;cursor:pointer;font-family:inherit;font-size:inherit;padding:0;text-decoration:underline;">Cookie-instellingen</button></span>
   </div>
-  </footer>
+</footer>
 
   <script>
     const io = new IntersectionObserver(entries => {
