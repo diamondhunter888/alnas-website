@@ -234,7 +234,7 @@ footer { background:#0e1013; color:rgba(255,255,255,.65); }
 .ft-brand-name span { color:var(--b); }
 .ft-brand-desc { font-size:.77rem; line-height:1.7; color:rgba(255,255,255,.5); margin-bottom:1.25rem; }
 .ft-contact { display:flex; flex-direction:column; gap:.5rem; }
-.ft-contact a { display:flex; align-items:center; gap:.5rem; font-size:.78rem; color:rgba(255,255,255,.65); text-decoration:none; transition:color .15s; }
+.ft-contact a { display:flex; align-items:center; gap:.5rem; font-size:.78rem; color:rgba(255,255,255,.6); text-decoration:none; transition:color .15s; }
 .ft-contact a:hover { color:#fff; }
 .ft-col h5 { font-family:'Montserrat',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:1rem; }
 .ft-col a, .ft-col span { display:block; font-size:.78rem; color:rgba(255,255,255,.6); text-decoration:none; margin-bottom:.5rem; transition:color .15s; }
