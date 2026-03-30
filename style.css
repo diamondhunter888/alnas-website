@@ -283,7 +283,7 @@ footer { background:var(--dark); color:rgba(255,255,255,.65); }
 .cb-modal-actions{display:flex;gap:.65rem;margin-top:1.5rem;justify-content:flex-end;}
 
 /* ── RESPONSIVE ── */
-@media(max-width:1600px) {
+@media(max-width:1800px) {
   nav { grid-template-columns:1fr auto; }
   .feat-grid .feat-card { flex-basis:calc((100% - 1.5rem) / 2); }
   .ft-top { grid-template-columns:1fr 1fr; }
