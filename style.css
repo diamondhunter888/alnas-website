@@ -225,7 +225,7 @@ nav.open .n-burger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg)
 .cta-phone-link:hover { color:#fff; }
 
 /* ── FOOTER ── */
-footer { background:var(--dark); color:rgba(255,255,255,.65); }
+footer { background:#0e1013; color:rgba(255,255,255,.65); }
 .ft-top {
   max-width:1200px; margin:0 auto; padding:4rem 5% 2.5rem;
   display:grid; grid-template-columns:1.8fr 1fr 1fr 1fr; gap:3rem;
@@ -237,7 +237,7 @@ footer { background:var(--dark); color:rgba(255,255,255,.65); }
 .ft-contact a { display:flex; align-items:center; gap:.5rem; font-size:.78rem; color:rgba(255,255,255,.65); text-decoration:none; transition:color .15s; }
 .ft-contact a:hover { color:#fff; }
 .ft-col h5 { font-family:'Montserrat',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:1rem; }
-.ft-col a, .ft-col span { display:block; font-size:.78rem; color:rgba(255,255,255,.55); text-decoration:none; margin-bottom:.5rem; transition:color .15s; }
+.ft-col a, .ft-col span { display:block; font-size:.78rem; color:rgba(255,255,255,.6); text-decoration:none; margin-bottom:.5rem; transition:color .15s; }
 .ft-col a:hover { color:#fff; }
 .ft-btm {
   max-width:1200px; margin:0 auto; padding:1.5rem 5%;
