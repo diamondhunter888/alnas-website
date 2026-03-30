@@ -741,10 +741,10 @@ nav.open .n-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)
 <!-- ── STATS ── -->
 <div class="stats">
   <div class="stats-inner">
-    <div class="sc reveal"><div class="sc-n">20<span class="u">+</span></div><div class="sc-l">Jaar in de sector</div></div>
-    <div class="sc reveal d1"><div class="sc-n">500<span class="u">+</span></div><div class="sc-l">Vaste klanten</div></div>
-    <div class="sc reveal d2"><div class="sc-n">24<span class="u">/7</span></div><div class="sc-l">Interventie mogelijk</div></div>
-    <div class="sc reveal d3"><div class="sc-n">100<span class="u">%</span></div><div class="sc-l">Klanttevredenheid</div></div>
+    <div class="sc reveal"><div class="sc-n" data-count="20"><span class="sc-num">0</span><span class="u">+</span></div><div class="sc-l">Jaar in de sector</div></div>
+    <div class="sc reveal d1"><div class="sc-n" data-count="500"><span class="sc-num">0</span><span class="u">+</span></div><div class="sc-l">Vaste klanten</div></div>
+    <div class="sc reveal d2"><div class="sc-n" data-count="24"><span class="sc-num">0</span><span class="u">/7</span></div><div class="sc-l">Interventie mogelijk</div></div>
+    <div class="sc reveal d3"><div class="sc-n" data-count="100"><span class="sc-num">0</span><span class="u">%</span></div><div class="sc-l">Klanttevredenheid</div></div>
   </div>
 </div>
 
@@ -984,6 +984,30 @@ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   navEl.classList.remove('open');
   mobileNav.classList.remove('show');
 }));
+
+/* Counter animation */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.count, 10);
+  const numEl  = el.querySelector('.sc-num');
+  if (!numEl) return;
+  const duration = 1400;
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 4); // easeOutQuart
+    numEl.textContent = Math.round(ease * target);
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const counterIo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animateCounter(e.target); counterIo.unobserve(e.target); }
+  });
+}, { threshold: 0.6 });
+
+document.querySelectorAll('.sc-n[data-count]').forEach(el => counterIo.observe(el));
 </script>
 <!-- COOKIE BANNER -->
 <div id="cb-banner" role="dialog" aria-label="Cookie-toestemming" aria-live="polite">
