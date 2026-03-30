@@ -323,8 +323,7 @@
       <div class="form-card-title">Offerteformulier</div>
       <div class="form-card-sub">Wij contacteren u binnen 24 uur.</div>
 
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-        <input type="hidden" name="form-name" value="contact">
+      <form name="contact" action="mail.php" method="POST" novalidate>
         <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
 
         <div class="fdivider">Over u</div>

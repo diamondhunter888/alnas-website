@@ -1,0 +1,30 @@
+# ── Security headers ──────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+</IfModule>
+
+# ── PHP-fouten verbergen voor bezoekers ────────────────────
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+</IfModule>
+
+# ── Directe toegang tot mail.php blokkeren (alleen POST) ──
+# (wordt al afgehandeld in mail.php zelf, maar dubbele beveiliging)
+
+# ── Backup- en systeembestanden blokkeren ──────────────────
+<FilesMatch "\.(sql|log|env|bak|old|orig|tmp)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# ── HTTPS afdwingen ───────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
