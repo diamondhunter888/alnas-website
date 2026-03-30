@@ -100,7 +100,7 @@ nav.open .n-burger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg)
   transition:transform .3s var(--ease), opacity .3s;
 }
 .n-mobile.show { transform:translateY(0); opacity:1; }
-.n-mobile a { font-family:'Montserrat',sans-serif; font-size:.88rem; font-weight:500; color:var(--text); text-decoration:none; padding:.75rem 0; border-bottom:1px solid var(--gray); }
+.n-mobile a { font-family:'Montserrat',sans-serif; font-size:.92rem; font-weight:600; color:var(--mid); text-decoration:none; padding:.75rem 0; border-bottom:1px solid var(--gray); transition:color .15s; }
 .n-mobile a:last-child { border-bottom:none; }
 .n-mob-cta {
   background:var(--b)!important; color:#fff!important;
