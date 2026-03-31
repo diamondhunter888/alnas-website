@@ -282,7 +282,7 @@ footer { background:#0e1013; color:rgba(255,255,255,.65); }
 .cb-modal-actions{display:flex;gap:.65rem;margin-top:1.5rem;justify-content:flex-end;}
 
 /* ── RESPONSIVE ── */
-@media(max-width:1100px) {
+@media(max-width:1200px) {
   nav { grid-template-columns:1fr auto; }
   .n-links, .n-right { display:none; }
   .n-burger { display:flex; }
