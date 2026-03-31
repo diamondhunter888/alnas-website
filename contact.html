@@ -135,6 +135,10 @@
     @media(max-width:1000px){
       .contact-grid{grid-template-columns:1fr;gap:3rem;}
     }
+    @media(max-width:1400px){
+      .n-links{gap:1.1rem;}
+      .n-right{gap:.6rem;}
+    }
     @media(max-width:1200px){
       nav{grid-template-columns:1fr auto;}
       .n-links{display:none;}
@@ -472,6 +476,117 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
 }, {threshold:.1, rootMargin:'0px 0px -32px 0px'});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+<script>
+// Form validation
+const contactForm = document.querySelector('form[name="contact"]');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    const naam = contactForm.elements['naam'].value.trim();
+    const email = contactForm.elements['email'].value.trim();
+    const telefoon = contactForm.elements['telefoon'].value.trim();
+
+    // Validate naam (required, max 200 chars)
+    if (!naam || naam.length === 0) {
+      e.preventDefault();
+      alert('Vul alstublieft uw naam in.');
+      contactForm.elements['naam'].focus();
+      return false;
+    }
+    if (naam.length > 200) {
+      e.preventDefault();
+      alert('Uw naam is te lang (max. 200 tekens).');
+      return false;
+    }
+
+    // Validate email (required, valid format)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      e.preventDefault();
+      alert('Vul alstublieft een geldig e-mailadres in.');
+      contactForm.elements['email'].focus();
+      return false;
+    }
+    if (email.length > 254) {
+      e.preventDefault();
+      alert('Uw e-mailadres is te lang.');
+      return false;
+    }
+
+    // Validate telefoon (required, Belgian format)
+    const phoneRegex = /^(\+32|0)[\d\s\-().]{7,20}$/;
+    if (!telefoon || !phoneRegex.test(telefoon)) {
+      e.preventDefault();
+      alert('Vul alstublieft een geldig Belgisch telefoonnummer in (bv. 03 828 82 26 of 0485 91 93 53).');
+      contactForm.elements['telefoon'].focus();
+      return false;
+    }
+    if (telefoon.length > 30) {
+      e.preventDefault();
+      alert('Uw telefoonnummer is te lang.');
+      return false;
+    }
+
+    // Validate optional bedrijf (max 200 chars)
+    const bedrijf = contactForm.elements['bedrijf'].value.trim();
+    if (bedrijf.length > 200) {
+      e.preventDefault();
+      alert('Bedrijfsnaam is te lang (max. 200 tekens).');
+      return false;
+    }
+
+    // Validate optional bericht (max 5000 chars)
+    const bericht = contactForm.elements['bericht'].value.trim();
+    if (bericht.length > 5000) {
+      e.preventDefault();
+      alert('Uw bericht is te lang (max. 5000 tekens).');
+      return false;
+    }
+
+    // Validate numeric fields (oppervlakte, verdiepingen)
+    const oppervlakte = contactForm.elements['oppervlakte'].value.trim();
+    if (oppervlakte && (isNaN(oppervlakte) || parseInt(oppervlakte) < 0 || parseInt(oppervlakte) > 999999)) {
+      e.preventDefault();
+      alert('Vul alstublieft een geldig aantal m² in (0-999999).');
+      return false;
+    }
+
+    const verdiepingen = contactForm.elements['verdiepingen'].value.trim();
+    if (verdiepingen && (isNaN(verdiepingen) || parseInt(verdiepingen) < 0 || parseInt(verdiepingen) > 999)) {
+      e.preventDefault();
+      alert('Vul alstublieft een geldig aantal verdiepingen in (0-999).');
+      return false;
+    }
+  });
+
+  // Real-time validation feedback on blur
+  const emailField = contactForm.elements['email'];
+  if (emailField) {
+    emailField.addEventListener('blur', () => {
+      const email = emailField.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email && !emailRegex.test(email)) {
+        emailField.style.borderColor = '#dc2626';
+      } else {
+        emailField.style.borderColor = '';
+      }
+    });
+  }
+
+  const phoneField = contactForm.elements['telefoon'];
+  if (phoneField) {
+    phoneField.addEventListener('blur', () => {
+      const phone = phoneField.value.trim();
+      const phoneRegex = /^(\+32|0)[\d\s\-().]{7,20}$/;
+      if (phone && !phoneRegex.test(phone)) {
+        phoneField.style.borderColor = '#dc2626';
+      } else {
+        phoneField.style.borderColor = '';
+      }
+    });
+  }
+}
 </script>
 
 <script>
