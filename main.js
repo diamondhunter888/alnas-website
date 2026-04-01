@@ -8,7 +8,15 @@ if (nav) {
 
 // ── SCROLL REVEAL ──
 const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      io.unobserve(el);
+      // Double rAF: let the browser paint the initial opacity:0 state first,
+      // then add .in — otherwise Safari/Android skips the transition entirely
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('in')));
+    }
+  });
 }, { threshold: 0, rootMargin: '0px 0px -10px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
