@@ -9,7 +9,7 @@ if (nav) {
 // ── SCROLL REVEAL ──
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-}, { threshold: .1, rootMargin: '0px 0px -32px 0px' });
+}, { threshold: 0, rootMargin: '0px 0px -10px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // ── MOBILE NAV ──
