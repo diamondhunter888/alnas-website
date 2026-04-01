@@ -2,9 +2,10 @@
 /**
  * Alnas Cleaning — contactformulier verwerker
  * Werkt op elke PHP-hosting (one.com, etc.)
- * Secured: header injection, input validation, rate limiting, enum validation
- * SMTP: Mailtrap (testing) — vervang door echte SMTP voor productie
+ * Secured: CSRF token, header injection, input validation, rate limiting, enum validation
+ * SMTP: TLS-verbinding (port 465/587) of plain (port 2525 voor Mailtrap dev)
  */
+session_start();
 
 define('TO_EMAIL',   'info@alnas.be');
 define('FROM_EMAIL', 'noreply@alnas.be');
@@ -34,6 +35,16 @@ if (!empty($_POST['bot-field'])) {
     header('Location: ' . SUCCESS_URL);
     exit;
 }
+
+// ── CSRF-validatie ─────────────────────────────────────────────────────────
+$submittedToken = $_POST['csrf_token'] ?? '';
+$sessionToken   = $_SESSION['csrf_token'] ?? '';
+
+if (empty($submittedToken) || empty($sessionToken) || !hash_equals($sessionToken, $submittedToken)) {
+    header('Location: ' . CONTACT_URL . '?fout=csrf');
+    exit;
+}
+unset($_SESSION['csrf_token']); // Eenmalig gebruik
 
 // ── Rate limiting: max 5 submissions per IP per minute ─────────────────
 function checkRateLimit(): bool {
@@ -157,23 +168,52 @@ if ($bericht) {
 $body .= str_repeat('-', 50) . "\n";
 $body .= "Verstuurd op: " . date('d/m/Y \o\m H:i') . "\n";
 
-// ── SMTP verzenden via socket ──────────────────────────────
+// ── SMTP verzenden via TLS-verbinding ─────────────────────────────────────
 function smtpSend(string $to, string $from, string $fromName, string $replyTo, string $subject, string $body): bool {
     $host = SMTP_HOST;
     $port = SMTP_PORT;
     $user = SMTP_USER;
     $pass = SMTP_PASS;
 
-    $sock = @fsockopen($host, $port, $errno, $errstr, 10);
+    // Port 465 = implicit TLS (SMTPS), port 587 = STARTTLS, overig = plain (bv. Mailtrap 2525)
+    $implicitTls  = ($port === 465);
+    $startTls     = ($port === 587);
+
+    $ctx = stream_context_create([
+        'ssl' => [
+            'verify_peer'      => true,
+            'verify_peer_name' => true,
+            'crypto_method'    => STREAM_CRYPTO_METHOD_TLS_CLIENT,
+        ],
+    ]);
+
+    $uri  = ($implicitTls ? 'ssl' : 'tcp') . "://{$host}:{$port}";
+    $sock = @stream_socket_client($uri, $errno, $errstr, 10, STREAM_CLIENT_CONNECT, $ctx);
     if (!$sock) return false;
 
-    $read = function() use ($sock) { return fgets($sock, 512); };
-    $send = function(string $cmd) use ($sock) { fwrite($sock, $cmd . "\r\n"); };
+    $read = function() use ($sock): string { return (string) fgets($sock, 512); };
+    $send = function(string $cmd) use ($sock): void { fwrite($sock, $cmd . "\r\n"); };
 
     $read(); // 220 greeting
 
     $send("EHLO " . gethostname());
     while ($line = $read()) { if (substr($line, 3, 1) === ' ') break; }
+
+    // Upgrade naar TLS via STARTTLS (port 587)
+    if ($startTls) {
+        $send("STARTTLS");
+        $r = $read();
+        if (substr($r, 0, 3) !== '220') { fclose($sock); return false; }
+
+        if (!stream_socket_enable_crypto($sock, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+            fclose($sock);
+            return false;
+        }
+
+        // Na STARTTLS opnieuw EHLO sturen
+        $send("EHLO " . gethostname());
+        while ($line = $read()) { if (substr($line, 3, 1) === ' ') break; }
+    }
 
     $send("AUTH LOGIN");
     $read();
@@ -190,14 +230,18 @@ function smtpSend(string $to, string $from, string $fromName, string $replyTo, s
     $send("DATA");
     $read();
 
-    $msg  = "From: {$fromName} <{$from}>\r\n";
+    $encodedFrom    = '=?UTF-8?B?' . base64_encode($fromName) . '?=';
+    $encodedSubject = '=?UTF-8?B?' . base64_encode($subject)  . '?=';
+
+    $msg  = "From: {$encodedFrom} <{$from}>\r\n";
     $msg .= "To: <{$to}>\r\n";
     $msg .= "Reply-To: <{$replyTo}>\r\n";
-    $msg .= "Subject: {$subject}\r\n";
+    $msg .= "Subject: {$encodedSubject}\r\n";
     $msg .= "MIME-Version: 1.0\r\n";
     $msg .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $msg .= "Content-Transfer-Encoding: base64\r\n";
     $msg .= "\r\n";
-    $msg .= $body . "\r\n";
+    $msg .= chunk_split(base64_encode($body)) . "\r\n";
     $msg .= ".";
 
     $send($msg);

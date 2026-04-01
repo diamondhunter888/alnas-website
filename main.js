@@ -1,6 +1,10 @@
 // ── NAVBAR SCROLL ──
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+if (nav) {
+  if (!document.body.classList.contains('page-subpage')) {
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  }
+}
 
 // ── SCROLL REVEAL ──
 const io = new IntersectionObserver(entries => {
@@ -12,16 +16,28 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 const burger = document.querySelector('.n-burger');
 const mobileNav = document.getElementById('nMobile');
 const navEl = document.querySelector('nav');
-burger.addEventListener('click', () => {
-  const open = navEl.classList.toggle('open');
-  mobileNav.classList.toggle('show', open);
-  burger.setAttribute('aria-expanded', open);
+if (burger && mobileNav && navEl) {
+  burger.addEventListener('click', () => {
+    const open = navEl.classList.toggle('open');
+    mobileNav.classList.toggle('show', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navEl.classList.remove('open');
+    mobileNav.classList.remove('show');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+}
+
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.ftrig').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.fi');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.fi.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
 });
-mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  navEl.classList.remove('open');
-  mobileNav.classList.remove('show');
-  burger.setAttribute('aria-expanded', false);
-}));
 
 // ── COOKIE BANNER ──
 (function () {
@@ -29,6 +45,7 @@ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   var banner = document.getElementById('cb-banner');
   var overlay = document.getElementById('cb-overlay');
   var modal = document.getElementById('cb-modal');
+  if (!banner || !overlay || !modal) return;
   function getConsent() { try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; } }
   function save(a, p) { localStorage.setItem(KEY, JSON.stringify({ necessary: true, analytics: !!a, preferences: !!p, ts: new Date().toISOString() })); }
   function hideBanner() { banner.classList.remove('cb-show'); }
