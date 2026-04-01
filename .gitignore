@@ -1,3 +1,6 @@
+# SMTP credentials — nooit committen
+smtp_config.php
+
 # Backup files
 index-backup.html
 index-original-backup.html
