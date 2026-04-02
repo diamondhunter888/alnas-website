@@ -763,7 +763,8 @@ textarea.finp { resize:vertical; min-height:90px; }
   .stap-arrow { display:block; }
 }
 @media(max-width:900px) {
-  .h-content { grid-template-columns:1fr; }
+  .h-content { grid-template-columns:1fr; min-height:auto; }
+  .h-inner { padding-top:calc(66px + 4rem); padding-bottom:4rem; }
   .h-photo { display:none; }
   .usp-grid { grid-template-columns:1fr 1fr; }
   .ft-top { grid-template-columns:1fr 1fr; gap:2rem; }
@@ -805,9 +806,11 @@ textarea.finp { resize:vertical; min-height:90px; }
 }
 @media(max-width:480px) {
   .sec { padding:4rem 5%; }
-  .h-eyebrow-txt { font-size:.55rem; letter-spacing:1.2px; }
+  .h-eyebrow { padding:.28rem .65rem; gap:.4rem; }
+  .h-dot { width:6px; height:6px; }
+  .h-eyebrow-txt { font-size:.52rem; letter-spacing:.3px; }
   .h-title { font-size:clamp(2.4rem,9vw,3.2rem); letter-spacing:-1.5px; }
-  .h-inner { padding-top:9rem; padding-bottom:6rem; }
+  .h-inner { padding-top:calc(66px + 3rem); padding-bottom:3rem; }
   .ft-top { grid-template-columns:1fr; }
   .ft-btm { flex-direction:column; align-items:flex-start; gap:.4rem; }
   .usp-grid { grid-template-columns:1fr; }
