@@ -805,6 +805,7 @@ textarea.finp { resize:vertical; min-height:90px; }
 }
 @media(max-width:480px) {
   .sec { padding:4rem 5%; }
+  .h-eyebrow-txt { font-size:.55rem; letter-spacing:1.2px; }
   .h-title { font-size:clamp(2.4rem,9vw,3.2rem); letter-spacing:-1.5px; }
   .h-inner { padding-top:9rem; padding-bottom:6rem; }
   .ft-top { grid-template-columns:1fr; }
