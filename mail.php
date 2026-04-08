@@ -8,7 +8,7 @@
 session_start();
 
 define('TO_EMAIL',   'info@alnas.be');
-define('FROM_EMAIL', 'noreply@alnas.be');
+define('FROM_EMAIL', 'info@alnas.be');
 define('SITE_NAME',  'Alnas Cleaning');
 
 // Paden: werkt zowel lokaal (/alnas-website/) als op productie (/)
@@ -16,13 +16,9 @@ $_base = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 define('CONTACT_URL', $_base . '/contact.html');
 define('SUCCESS_URL', $_base . '/bedankt.html');
 
-// SMTP-instellingen uit aparte config (staat niet in Git)
+// smtp_config.php optioneel — mail() werkt zonder config op cPanel
 $_cfg = __DIR__ . '/smtp_config.php';
-if (!file_exists($_cfg)) {
-    header('Location: ' . CONTACT_URL . '?fout=config');
-    exit;
-}
-require $_cfg;
+if (file_exists($_cfg)) require $_cfg;
 
 // Alleen POST accepteren
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -168,98 +164,14 @@ if ($bericht) {
 $body .= str_repeat('-', 50) . "\n";
 $body .= "Verstuurd op: " . date('d/m/Y \o\m H:i') . "\n";
 
-// ── SMTP verzenden via TLS-verbinding ─────────────────────────────────────
-function smtpSend(string $to, string $from, string $fromName, string $replyTo, string $subject, string $body): bool {
-    $host = SMTP_HOST;
-    $port = SMTP_PORT;
-    $user = SMTP_USER;
-    $pass = SMTP_PASS;
+// ── Verzenden via PHP mail() ───────────────────────────────────────────────
+$encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+$headers  = "From: " . SITE_NAME . " <" . FROM_EMAIL . ">\r\n";
+$headers .= "Reply-To: <{$email}>\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-    // Port 465 = implicit TLS (SMTPS), port 587 = STARTTLS, overig = plain (bv. Mailtrap 2525)
-    $implicitTls  = ($port === 465);
-    $startTls     = ($port === 587);
-
-    $ctx = stream_context_create([
-        'ssl' => [
-            'verify_peer'      => true,
-            'verify_peer_name' => true,
-            'crypto_method'    => STREAM_CRYPTO_METHOD_TLS_CLIENT,
-        ],
-    ]);
-
-    $uri  = ($implicitTls ? 'ssl' : 'tcp') . "://{$host}:{$port}";
-    $sock = @stream_socket_client($uri, $errno, $errstr, 10, STREAM_CLIENT_CONNECT, $ctx);
-    if (!$sock) return false;
-
-    $read = function() use ($sock): string { return (string) fgets($sock, 512); };
-    $send = function(string $cmd) use ($sock): void { fwrite($sock, $cmd . "\r\n"); };
-
-    $read(); // 220 greeting
-
-    $send("EHLO " . gethostname());
-    while ($line = $read()) { if (substr($line, 3, 1) === ' ') break; }
-
-    // Upgrade naar TLS via STARTTLS (port 587)
-    if ($startTls) {
-        $send("STARTTLS");
-        $r = $read();
-        if (substr($r, 0, 3) !== '220') { fclose($sock); return false; }
-
-        if (!stream_socket_enable_crypto($sock, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
-            fclose($sock);
-            return false;
-        }
-
-        // Na STARTTLS opnieuw EHLO sturen
-        $send("EHLO " . gethostname());
-        while ($line = $read()) { if (substr($line, 3, 1) === ' ') break; }
-    }
-
-    $send("AUTH LOGIN");
-    $read();
-    $send(base64_encode($user));
-    $read();
-    $send(base64_encode($pass));
-    $r = $read();
-    if (substr($r, 0, 3) !== '235') { fclose($sock); return false; }
-
-    $send("MAIL FROM:<{$from}>");
-    $read();
-    $send("RCPT TO:<{$to}>");
-    $read();
-    $send("DATA");
-    $read();
-
-    $encodedFrom    = '=?UTF-8?B?' . base64_encode($fromName) . '?=';
-    $encodedSubject = '=?UTF-8?B?' . base64_encode($subject)  . '?=';
-
-    $msg  = "From: {$encodedFrom} <{$from}>\r\n";
-    $msg .= "To: <{$to}>\r\n";
-    $msg .= "Reply-To: <{$replyTo}>\r\n";
-    $msg .= "Subject: {$encodedSubject}\r\n";
-    $msg .= "MIME-Version: 1.0\r\n";
-    $msg .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    $msg .= "Content-Transfer-Encoding: base64\r\n";
-    $msg .= "\r\n";
-    $msg .= chunk_split(base64_encode($body)) . "\r\n";
-    $msg .= ".";
-
-    $send($msg);
-    $r = $read();
-    $send("QUIT");
-    fclose($sock);
-
-    return substr($r, 0, 3) === '250';
-}
-
-$sent = smtpSend(
-    TO_EMAIL,
-    FROM_EMAIL,
-    SITE_NAME,
-    (string) $email,
-    $subject,
-    $body
-);
+$sent = mail(TO_EMAIL, $encodedSubject, $body, $headers);
 
 if ($sent) {
     header('Location: ' . SUCCESS_URL);
